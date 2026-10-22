@@ -37,6 +37,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt pyinstaller
 
+      # Panda3D:s Mac-version har några filer (Rocket, Cg) som bara finns för
+      # Intel. Spelet använder dem inte, men PyInstaller vägrar bygga för
+      # Apple-chip om de är med.
+      - name: Ta bort Intel-filer (Mac)
+        if: runner.os == 'macOS'
+        run: |
+          cd "$(python -c 'import panda3d, os; print(os.path.dirname(panda3d.__file__))')"
+          rm -fv rocket.*.so libp3rocket.*.dylib libRocket*.dylib libCg.dylib
+
       - name: Bygg med PyInstaller
         run: >
           pyinstaller --noconfirm --windowed --name Degu-flykten
