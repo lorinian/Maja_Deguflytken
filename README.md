@@ -4,7 +4,33 @@ Ett 3D-spel i Python (Ursina). Degusarna **Piff** och **Puff** har smitit ut i
 trädgården. Katten **Pixi** jagar dem! Få in båda i buren (inne i huset) utan
 att bli uppäten.
 
-## Starta
+## Ladda ner färdigt spel (utan Python)
+
+Under **Releases** på GitHub finns färdiga versioner att ladda ner:
+
+- **Windows:** packa upp `Degu-flykten-windows.zip` och dubbelklicka på
+  `Degu-flykten.exe`. Visar Windows "Datorn skyddades av Windows"? Klicka på
+  **Mer information** → **Kör ändå**.
+- **Mac:** packa upp `Degu-flykten-mac.zip`. Första gången: högerklicka på
+  `Degu-flykten.app` och välj **Öppna**. (Fungerar på Mac med Apple-chip, M1
+  eller nyare.)
+- **Linux:** packa upp `Degu-flykten-linux.tar.gz` och kör
+  `Degu-flykten/Degu-flykten`.
+
+### Bygga en ny version
+
+Skapa och pusha en tagg, så bygger GitHub alla tre versionerna och lägger upp
+dem som en release:
+
+```bash
+git tag v1.0
+git push origin v1.0
+```
+
+Du kan också bygga utan release: fliken **Actions** → **Bygg spelet** →
+**Run workflow**. Filerna hamnar då under "Artifacts" på körningens sida.
+
+## Starta från källkoden
 
 Du behöver **Python 3.10 eller nyare** (3.12 rekommenderas). Ladda ner det från
 [python.org/downloads](https://www.python.org/downloads/) om du inte redan har det.
